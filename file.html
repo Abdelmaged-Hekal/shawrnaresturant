@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shawarma Hekal | Syrian & Egyptian</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* The background URL now points to your local images folder */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/hero-bg.jpg') center/cover;
+            color: white;
+            padding: 120px 0;
+        }
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+        .about-img {
+            border-radius: 10px;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Shawarma Hekal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold text-warning">The Best of Two Worlds</h1>
+            <p class="lead mt-3 mb-4 text-light">Authentic Chicken and Beef Shawarma, crafted the Syrian and Egyptian way.</p>
+            <a href="#menu" class="btn btn-warning btn-lg fw-bold px-4">View Our Menu</a>
+        </div>
+    </header>
+
+    <section id="about" class="container py-5">
+        <h2 class="text-center mb-5 fw-bold text-dark">About Us</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <!-- Points to your local about image -->
+                <img src="about-pic.jpg" alt="Shawarma Preparation" class="about-img shadow">
+            </div>
+            <div class="col-md-6">
+                <h3 class="fw-bold mb-3">Our Story</h3>
+                <p class="lead text-muted">
+                    Welcome to Shawarma Hekal! We decided to bring our hometown flavors together in one place. 
+                    Whether you love the garlicky, toasted perfection of Syrian Saj bread, or the hearty, juicy Egyptian Kaiser bun style with Tahini, we have something to satisfy your cravings.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold text-dark">Our Simple Menu</h2>
+            <div class="row g-4">
+                
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="syrian-chicken.jpg" class="card-img-top" alt="Syrian Chicken Shawarma">
+                        <div class="card-body text-center">
+                            <h4 class="card-title fw-bold">Syrian Chicken</h4>
+                            <p class="card-text text-muted">Wrapped in thin Saj bread, toasted to perfection with garlic sauce and pickles.</p>
+                            <h5 class="fw-bold text-warning">85 EGP</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="egyptian-beef.jpg" class="card-img-top" alt="Egyptian Beef Shawarma">
+                        <div class="card-body text-center">
+                            <h4 class="card-title fw-bold">Egyptian Beef</h4>
+                            <p class="card-text text-muted">Served in a fresh Kaiser bun with fresh tomatoes, parsley, onions, and rich Tahini.</p>
+                            <h5 class="fw-bold text-warning">95 EGP</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="egyptian-chicken.jpg" class="card-img-top" alt="Egyptian Chicken Shawarma">
+                        <div class="card-body text-center">
+                            <h4 class="card-title fw-bold">Egyptian Chicken</h4>
+                            <p class="card-text text-muted">Juicy chicken slices in French bread with peppers, onions, and special house sauce.</p>
+                            <h5 class="fw-bold text-warning">80 EGP</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="syrian-beef.jpg" class="card-img-top" alt="Syrian Beef Shawarma">
+                        <div class="card-body text-center">
+                            <h4 class="card-title fw-bold">Syrian Beef</h4>
+                            <p class="card-text text-muted">Authentic Syrian style beef wrapped in Saj bread with pomegranate molasses and parsley.</p>
+                            <h5 class="fw-bold text-warning">100 EGP</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container py-5">
+        <h2 class="text-center mb-5 fw-bold text-dark">Contact Us</h2>
+        <div class="row shadow-sm bg-white p-5 rounded-4 align-items-center">
+            <div class="col-md-8 mx-auto">
+                <form id="contactForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label fw-bold">Your Name</label>
+                        <input type="text" class="form-control bg-light" id="name" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="form-label fw-bold">Message or Order</label>
+                        <textarea class="form-control bg-light" id="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100 fw-bold py-2">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4 text-center">
+        <p class="mb-0">&copy; 2026 Shawarma Hekal. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        const form = document.getElementById('contactForm');
+        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const userName = document.getElementById('name').value;
+            alert("Thanks " + userName + "! Your message has been sent to the Shawarma Hekal team.");
+            
+            form.reset(); 
+        });
+    </script>
+</body>
+</html>
