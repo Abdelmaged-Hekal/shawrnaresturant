@@ -1,161 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shawarma Hekal | Syrian & Egyptian</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* The background URL now points to your local images folder */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/hero-bg.jpg') center/cover;
-            color: white;
-            padding: 120px 0;
-        }
-        .card-img-top {
-            height: 220px;
-            object-fit: cover;
-        }
-        .about-img {
-            border-radius: 10px;
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shawarma Hekal | Syrian &amp; Egyptian</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       Re-theme Bootstrap with a food palette.
+       We're ONLY changing Bootstrap's own CSS variables —
+       all layout, spacing, and components are pure Bootstrap.
+       ============================================================ */
+    :root {
+      /* Page: deep charcoal (grilled meat, charred edges) */
+      --bs-body-bg:        #1f1a16;
+      --bs-body-bg-rgb:    31, 26, 22;
+      --bs-body-color:     #f5ead6;
+      --bs-body-color-rgb: 245, 234, 214;
+      --bs-emphasis-color: #f5ead6;
+
+      /* Bootstrap color palette → food colors */
+      --bs-dark:      #2a221c;   /* warm brown — bread crust */
+      --bs-dark-rgb:  42, 34, 28;
+
+      --bs-light:     #f5ead6;   /* cream — saj bread / tahini */
+      --bs-light-rgb: 245, 234, 214;
+
+      --bs-warning:     #e8a33d; /* saffron — spices, grilled chicken */
+      --bs-warning-rgb: 232, 163, 61;
+
+      --bs-danger:     #c1440e;  /* paprika — sumac, chili */
+      --bs-danger-rgb: 193, 68, 14;
+    }
+
+    /* Re-theme the Bootstrap "warning" button to saffron.
+       Uses Bootstrap's own --bs-btn-* variables. */
+    .btn-warning {
+      --bs-btn-color:              #2a221c;
+      --bs-btn-bg:                 #e8a33d;
+      --bs-btn-border-color:       #e8a33d;
+      --bs-btn-hover-color:        #2a221c;
+      --bs-btn-hover-bg:           #d4922c;
+      --bs-btn-hover-border-color: #d4922c;
+      --bs-btn-active-color:       #2a221c;
+      --bs-btn-active-bg:          #c98628;
+      --bs-btn-active-border-color:#c98628;
+    }
+
+    /* Saffron focus ring on form fields */
+    .form-control:focus,
+    .form-select:focus {
+      border-color: #e8a33d;
+      box-shadow: 0 0 0 0.25rem rgba(232, 163, 61, 0.25);
+    }
+
+    /* Bootstrap has no utility for fixed image heights */
+    .card-img-top { height: 200px; object-fit: cover; }
+    .about-img    { height: 340px; object-fit: cover; }
+  </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Shawarma Hekal</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+<!-- ============================================================
+     NAVBAR  (Bootstrap navbar + utilities)
+     ============================================================ -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-warning border-2">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#top">Shawarma Hekal</a>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#visit">Visit</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Order</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO  (min-vh-50 + flex centering = pure Bootstrap)
+     ============================================================ -->
+<header class="bg-dark text-center d-flex align-items-center min-vh-50" id="top">
+  <div class="container py-5">
+    <h1 class="display-3 fw-bold text-uppercase mb-3">
+      The Best of <span class="text-warning">Two Worlds</span>
+    </h1>
+    <p class="fs-5 text-secondary mb-4">
+      Authentic chicken and beef shawarma, crafted the Syrian and Egyptian way.
+    </p>
+    <a href="#menu" class="btn btn-warning btn-lg fw-bold px-4">View Our Menu</a>
+  </div>
+</header>
+
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about" class="bg-light text-dark py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold text-uppercase mb-4">About Us</h2>
+
+    <div class="row align-items-center g-4">
+      <div class="col-md-6">
+        <img src="about-pic.jpg" alt="Shawarma preparation"
+             class="about-img w-100 rounded shadow-sm">
+      </div>
+
+      <div class="col-md-6">
+        <h3 class="fw-bold mb-3">Our Story</h3>
+        <p class="text-secondary mb-0">
+          Welcome to Shawarma Hekal! We brought our two hometown flavours together in one
+          place. Whether you love the garlicky, toasted Syrian Saj bread, or the hearty,
+          juicy Egyptian Kaiser bun with Tahini, we have something to satisfy your cravings.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MENU  (Bootstrap cards)
+     ============================================================ -->
+<section id="menu" class="bg-body py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold text-uppercase text-warning mb-4">Our Menu</h2>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 bg-dark text-light border-0">
+          <img src="syrian-chicken.jpg" class="card-img-top" alt="Syrian Chicken Shawarma">
+          <div class="card-body d-flex flex-column">
+            <p class="small fw-bold text-warning mb-2">SYRIAN</p>
+            <h5 class="card-title fw-bold">Syrian Chicken</h5>
+            <p class="card-text small text-secondary flex-grow-1">
+              Wrapped in thin Saj bread, toasted with garlic sauce and pickles.
+            </p>
+            <p class="fw-bold text-warning fs-5 mb-0">85 EGP</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 bg-dark text-light border-0">
+          <img src="egyptian-beef.jpg" class="card-img-top" alt="Egyptian Beef Shawarma">
+          <div class="card-body d-flex flex-column">
+            <p class="small fw-bold text-danger mb-2">EGYPTIAN</p>
+            <h5 class="card-title fw-bold">Egyptian Beef</h5>
+            <p class="card-text small text-secondary flex-grow-1">
+              Served in a fresh Kaiser bun with tomatoes, parsley, onions and Tahini.
+            </p>
+            <p class="fw-bold text-warning fs-5 mb-0">95 EGP</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 bg-dark text-light border-0">
+          <img src="egyptian-chicken.jpg" class="card-img-top" alt="Egyptian Chicken Shawarma">
+          <div class="card-body d-flex flex-column">
+            <p class="small fw-bold text-danger mb-2">EGYPTIAN</p>
+            <h5 class="card-title fw-bold">Egyptian Chicken</h5>
+            <p class="card-text small text-secondary flex-grow-1">
+              Juicy chicken in French bread with peppers, onions and house sauce.
+            </p>
+            <p class="fw-bold text-warning fs-5 mb-0">80 EGP</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 bg-dark text-light border-0">
+          <img src="syrian-beef.jpg" class="card-img-top" alt="Syrian Beef Shawarma">
+          <div class="card-body d-flex flex-column">
+            <p class="small fw-bold text-warning mb-2">SYRIAN</p>
+            <h5 class="card-title fw-bold">Syrian Beef</h5>
+            <p class="card-text small text-secondary flex-grow-1">
+              Beef in Saj bread with pomegranate molasses and fresh parsley.
+            </p>
+            <p class="fw-bold text-warning fs-5 mb-0">100 EGP</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     VISIT US
+     ============================================================ -->
+<section id="visit" class="bg-light text-dark py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold text-uppercase mb-2">Visit Us</h2>
+    <p class="text-center text-secondary mb-5">Come hungry. We're open late.</p>
+
+    <div class="row g-4">
+
+      <!-- Location -->
+      <div class="col-md-4">
+        <div class="card bg-dark text-light border-0 h-100">
+          <div class="card-body">
+            <h5 class="card-title text-warning fw-bold">Location</h5>
+            <p class="card-text mb-0">
+              27 El Hekal Street<br>Heliopolis, Cairo<br>Egypt
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hours -->
+      <div class="col-md-4">
+        <div class="card bg-dark text-light border-0 h-100">
+          <div class="card-body">
+            <h5 class="card-title text-warning fw-bold">Opening Hours</h5>
+            <ul class="list-unstyled mb-0">
+              <li class="d-flex justify-content-between border-bottom border-secondary py-2">
+                <span>Sat &ndash; Thu</span>
+                <span class="text-warning fw-bold">11:00 &ndash; 02:00</span>
+              </li>
+              <li class="d-flex justify-content-between py-2">
+                <span>Friday</span>
+                <span class="text-warning fw-bold">14:00 &ndash; 02:00</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-4">
+        <div class="card bg-dark text-light border-0 h-100">
+          <div class="card-body">
+            <h5 class="card-title text-warning fw-bold">Get in Touch</h5>
+            <p class="card-text mb-0">
+              <a href="tel:+201000000000" class="text-light fw-bold text-decoration-none">
+                +20 100 000 0000
+              </a><br>
+              <small class="text-secondary">Call ahead for large orders</small>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ORDER FORM
+     ============================================================ -->
+<section id="contact" class="bg-body py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold text-uppercase text-warning mb-2">Place Your Order</h2>
+    <p class="text-center text-secondary mb-5">
+      Pick your dish, choose how you want it, and we'll take care of the rest.
+    </p>
+
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-8">
+        <div class="bg-light text-dark p-4 p-md-5 rounded-3">
+
+          <form id="contactForm">
+
+            <!-- Name + Phone -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label fw-bold">Your Name</label>
+                <input type="text" class="form-control" id="name"
+                       placeholder="e.g. Ahmed" required>
+              </div>
+              <div class="col-md-6">
+                <label for="phone" class="form-label fw-bold">Phone Number</label>
+                <input type="tel" class="form-control" id="phone"
+                       placeholder="+20 1XX XXX XXXX" required>
+              </div>
+            </div>
+
+            <!-- Order Type (Bootstrap btn-check) -->
+            <div class="mb-3">
+              <label class="form-label fw-bold d-block">Order Type</label>
+              <div class="btn-group" role="group" aria-label="Order type">
+                <input type="radio" class="btn-check" name="orderType"
+                       id="pickup" value="Pickup" checked>
+                <label class="btn btn-outline-dark" for="pickup">Pickup</label>
+
+                <input type="radio" class="btn-check" name="orderType"
+                       id="delivery" value="Delivery">
+                <label class="btn btn-outline-dark" for="delivery">Delivery</label>
+
+                <input type="radio" class="btn-check" name="orderType"
+                       id="dinein" value="Dine-in">
+                <label class="btn btn-outline-dark" for="dinein">Dine-in</label>
+              </div>
+            </div>
+
+            <!-- Dish + Quantity -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-8">
+                <label for="dish" class="form-label fw-bold">Choose Your Dish</label>
+                <select class="form-select" id="dish" required>
+                  <option value="" selected disabled>Select a dish...</option>
+                  <option value="Syrian Chicken (85 EGP)">Syrian Chicken — 85 EGP</option>
+                  <option value="Egyptian Beef (95 EGP)">Egyptian Beef — 95 EGP</option>
+                  <option value="Egyptian Chicken (80 EGP)">Egyptian Chicken — 80 EGP</option>
+                  <option value="Syrian Beef (100 EGP)">Syrian Beef — 100 EGP</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="quantity" class="form-label fw-bold">Quantity</label>
+                <input type="number" class="form-control" id="quantity"
+                       min="1" max="20" value="1" required>
+              </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="mb-4">
+              <label for="message" class="form-label fw-bold">
+                Special Requests <span class="text-secondary fw-normal">(optional)</span>
+              </label>
+              <textarea class="form-control" id="message" rows="3"
+                        placeholder="Extra garlic sauce, no pickles, etc."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-warning w-100 py-2 fw-bold">
+              Send Order
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+
+            <div id="formNote" class="alert alert-success mt-3 d-none" role="alert"></div>
+
+          </form>
+
         </div>
-    </nav>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <header class="hero text-center">
-        <div class="container">
-            <h1 class="display-3 fw-bold text-warning">The Best of Two Worlds</h1>
-            <p class="lead mt-3 mb-4 text-light">Authentic Chicken and Beef Shawarma, crafted the Syrian and Egyptian way.</p>
-            <a href="#menu" class="btn btn-warning btn-lg fw-bold px-4">View Our Menu</a>
-        </div>
-    </header>
 
-    <section id="about" class="container py-5">
-        <h2 class="text-center mb-5 fw-bold text-dark">About Us</h2>
-        <div class="row align-items-center">
-            <div class="col-md-6 mb-4 mb-md-0">
-                <!-- Points to your local about image -->
-                <img src="about-pic.jpg" alt="Shawarma Preparation" class="about-img shadow">
-            </div>
-            <div class="col-md-6">
-                <h3 class="fw-bold mb-3">Our Story</h3>
-                <p class="lead text-muted">
-                    Welcome to Shawarma Hekal! We decided to bring our hometown flavors together in one place. 
-                    Whether you love the garlicky, toasted perfection of Syrian Saj bread, or the hearty, juicy Egyptian Kaiser bun style with Tahini, we have something to satisfy your cravings.
-                </p>
-            </div>
-        </div>
-    </section>
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="bg-dark text-center py-4 border-top border-warning border-2">
+  <div class="container">
+    <p class="mb-1 fw-bold text-warning">Shawarma Hekal</p>
+    <p class="mb-1 small text-secondary">27 El Hekal Street, Heliopolis, Cairo</p>
+    <p class="mb-0 small text-secondary">&copy; 2026 Shawarma Hekal. All rights reserved.</p>
+  </div>
+</footer>
 
-    <section id="menu" class="bg-light py-5">
-        <div class="container">
-            <h2 class="text-center mb-5 fw-bold text-dark">Our Simple Menu</h2>
-            <div class="row g-4">
-                
-                <div class="col-md-6">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <img src="syrian-chicken.jpg" class="card-img-top" alt="Syrian Chicken Shawarma">
-                        <div class="card-body text-center">
-                            <h4 class="card-title fw-bold">Syrian Chicken</h4>
-                            <p class="card-text text-muted">Wrapped in thin Saj bread, toasted to perfection with garlic sauce and pickles.</p>
-                            <h5 class="fw-bold text-warning">85 EGP</h5>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-md-6">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <img src="egyptian-beef.jpg" class="card-img-top" alt="Egyptian Beef Shawarma">
-                        <div class="card-body text-center">
-                            <h4 class="card-title fw-bold">Egyptian Beef</h4>
-                            <p class="card-text text-muted">Served in a fresh Kaiser bun with fresh tomatoes, parsley, onions, and rich Tahini.</p>
-                            <h5 class="fw-bold text-warning">95 EGP</h5>
-                        </div>
-                    </div>
-                </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-                <div class="col-md-6">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <img src="egyptian-chicken.jpg" class="card-img-top" alt="Egyptian Chicken Shawarma">
-                        <div class="card-body text-center">
-                            <h4 class="card-title fw-bold">Egyptian Chicken</h4>
-                            <p class="card-text text-muted">Juicy chicken slices in French bread with peppers, onions, and special house sauce.</p>
-                            <h5 class="fw-bold text-warning">80 EGP</h5>
-                        </div>
-                    </div>
-                </div>
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function (event) {
+    event.preventDefault();
 
-                <div class="col-md-6">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <img src="syrian-beef.jpg" class="card-img-top" alt="Syrian Beef Shawarma">
-                        <div class="card-body text-center">
-                            <h4 class="card-title fw-bold">Syrian Beef</h4>
-                            <p class="card-text text-muted">Authentic Syrian style beef wrapped in Saj bread with pomegranate molasses and parsley.</p>
-                            <h5 class="fw-bold text-warning">100 EGP</h5>
-                        </div>
-                    </div>
-                </div>
+    var name      = document.getElementById('name').value.trim();
+    var phone     = document.getElementById('phone').value.trim();
+    var dish      = document.getElementById('dish').value;
+    var quantity  = document.getElementById('quantity').value;
+    var orderType = document.querySelector('input[name="orderType"]:checked').value;
 
-            </div>
-        </div>
-    </section>
+    var note = document.getElementById('formNote');
 
-    <section id="contact" class="container py-5">
-        <h2 class="text-center mb-5 fw-bold text-dark">Contact Us</h2>
-        <div class="row shadow-sm bg-white p-5 rounded-4 align-items-center">
-            <div class="col-md-8 mx-auto">
-                <form id="contactForm">
-                    <div class="mb-3">
-                        <label for="name" class="form-label fw-bold">Your Name</label>
-                        <input type="text" class="form-control bg-light" id="name" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="message" class="form-label fw-bold">Message or Order</label>
-                        <textarea class="form-control bg-light" id="message" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-dark w-100 fw-bold py-2">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    note.innerHTML =
+      '<strong>Thanks ' + name + '!</strong><br>' +
+      'Your order for <strong>' + quantity + ' &times; ' + dish + '</strong> ' +
+      '(' + orderType + ') has been received.<br>' +
+      'We\'ll call you at <strong>' + phone + '</strong> to confirm.';
 
-    <footer class="bg-dark text-white py-4 text-center">
-        <p class="mb-0">&copy; 2026 Shawarma Hekal. All rights reserved.</p>
-    </footer>
+    note.classList.remove('d-none');
+    this.reset();
+    note.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        const form = document.getElementById('contactForm');
-        
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); 
-            
-            const userName = document.getElementById('name').value;
-            alert("Thanks " + userName + "! Your message has been sent to the Shawarma Hekal team.");
-            
-            form.reset(); 
-        });
-    </script>
+    setTimeout(function () { note.classList.add('d-none'); }, 8000);
+  });
+</script>
+
 </body>
 </html>
